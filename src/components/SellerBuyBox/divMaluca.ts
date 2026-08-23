@@ -8,8 +8,8 @@ const divMaluca = ({
   preco2,
   preco3,
   cpp,
-  locale = 'en-GB',
-  currencyCode = 'EUR',
+  locale = 'es-AR',
+  currencyCode = 'ARS',
 }: any) => `
 <div class="-cardpdpvaluebox">
     <div class="-boxheader">
@@ -124,8 +124,8 @@ const divMaluca = ({
 
 export function formatCash(
   cash: number,
-  locale = 'en-GB',
-  currencyCode = 'EUR'
+  locale = 'es-AR',
+  currencyCode = 'ARS'
 ) {
   if (cash <= 0) return ''
 
@@ -137,7 +137,7 @@ export function formatCash(
   }).format(cash)
 }
 
-export function formatPoints(points: number, locale = 'en-GB') {
+export function formatPoints(points: number, locale = 'es-AR') {
   if (points <= 0) return ''
 
   return (

@@ -3,8 +3,8 @@ import { usePriceFormatter, useFormattedPrice } from './index'
 
 jest.mock('@faststore/core/experimental', () => ({
   useSession_unstable: () => ({
-    locale: 'en-GB',
-    currency: { code: 'EUR' },
+    locale: 'es-AR',
+    currency: { code: 'ARS' },
   }),
 }))
 
@@ -14,7 +14,7 @@ describe('usePriceFormatter', () => {
 
     const formattedPrice = result.current(1500)
 
-    expect(formattedPrice.replace(/\s+/g, '')).toBe('€1,500.00')
+    expect(formattedPrice.replace(/\s+/g, '')).toBe('$1.500,00')
   })
 
   it('should format decimal prices correctly', () => {
@@ -22,7 +22,7 @@ describe('usePriceFormatter', () => {
 
     const formattedPrice = result.current(1500.75)
 
-    expect(formattedPrice.replace(/\s+/g, '')).toBe('€1,500.75')
+    expect(formattedPrice.replace(/\s+/g, '')).toBe('$1.500,75')
   })
 })
 
@@ -30,7 +30,7 @@ describe('useFormattedPrice', () => {
   it('should return the correctly formatted price', () => {
     const { result } = renderHook(() => useFormattedPrice(2000))
 
-    expect(result.current.replace(/\s+/g, '')).toBe('€2,000.00')
+    expect(result.current.replace(/\s+/g, '')).toBe('$2.000,00')
   })
 
   it('should reformat the price when the value changes', () => {
@@ -41,10 +41,10 @@ describe('useFormattedPrice', () => {
       }
     )
 
-    expect(result.current.replace(/\s+/g, '')).toBe('€3,000.00')
+    expect(result.current.replace(/\s+/g, '')).toBe('$3.000,00')
 
     rerender({ price: 3500 })
 
-    expect(result.current.replace(/\s+/g, '')).toBe('€3,500.00')
+    expect(result.current.replace(/\s+/g, '')).toBe('$3.500,00')
   })
 })

@@ -1,10 +1,10 @@
 module.exports = {
   seo: {
-    title: 'Santander Shopping',
+    title: 'ICBC Shopping',
     description:
       'Shop at major retailers, pay with exclusive conditions, and earn Esfera points.',
-    titleTemplate: '%s | Santander Shopping',
-    author: 'Santander',
+    titleTemplate: '%s | ICBC Shopping',
+    author: 'ICBC',
   },
 
   // Theming
@@ -25,12 +25,12 @@ module.exports = {
   // Default session
   session: {
     currency: {
-      code: 'EUR',
-      symbol: '€',
+      code: 'ARS',
+      symbol: '$',
     },
-    locale: 'en-GB',
+    locale: 'es-AR',
     channel: '{"salesChannel":3,"regionId":""}',
-    country: 'GBR',
+    country: 'ARG',
     deliveryMode: null,
     addressType: null,
     postalCode: null,
@@ -54,7 +54,7 @@ module.exports = {
 
   previewRedirects: {
     home: '/',
-    plp: '/eletronicos',
+    plp: '/electronicos',
     search: '/s?q=Samsung',
     pdp: '/fastshop-104/p',
   },
@@ -113,6 +113,11 @@ module.exports = {
         code: "EUR",
         name: "Euro",
         symbol: "€",
+      },
+      ARS: {
+        code: "ARS",
+        name: "Argentine Peso",
+        symbol: "$",
       },
     },
   },
