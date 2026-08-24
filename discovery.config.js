@@ -46,11 +46,11 @@ module.exports = {
   },
 
   // Production URLs
-  storeUrl: 'https://santander.b2cdemostore.com',
-  secureSubdomain: 'https://santander.b2cdemostore.com',
-  checkoutUrl: 'https://santander.b2cdemostore.com/checkout',
-  loginUrl: 'https://santander.b2cdemostore.com/api/io/login',
-  accountUrl: 'https://santander.b2cdemostore.com/account',
+  storeUrl: 'https://pocicbcmall.vtex.app',
+  secureSubdomain: 'https://secure.vtexfaststore.com/',
+  checkoutUrl: 'https://pocicbcmall.myvtex.com/checkout',
+  loginUrl: 'https://pocicbcmall.myvtex.com/api/io/login',
+  accountUrl: 'https://pocicbcmall.myvtex.com/account',
 
   previewRedirects: {
     home: '/',
