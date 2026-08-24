@@ -1,3 +1,3 @@
-# starter.store
+# pocicbcmall.faststore
 
-A starter powered by FastStore.
+ICBC Mall storefront, powered by FastStore and VTEX.

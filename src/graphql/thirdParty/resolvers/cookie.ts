@@ -23,7 +23,7 @@ const cookieResolver = {
 }
 
 async function getMasterDataFromExternalService(dId: string) {
-  const url = `https://pocsanbesfera.myvtex.com/_v/token/document/${dId}`
+  const url = `https://pocicbcmall.myvtex.com/_v/token/document/${dId}`
   const response = await fetch(url)
   const data: { hash: string; token: string } = await response.json()
 

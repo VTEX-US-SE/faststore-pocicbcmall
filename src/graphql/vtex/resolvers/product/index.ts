@@ -5,7 +5,7 @@ const productResolver = {
     cpp: (root: StoreProductRoot) => {
       const cppValue =
         root?.isVariantOf?.specificationGroups
-          ?.find((specificationGroup) => specificationGroup.name === 'Pontos')
+          ?.find((specificationGroup) => specificationGroup.name === 'Puntos')
           ?.specifications?.find(
             (specification) => specification.name === 'CPP'
           )?.values?.[0] || '100'

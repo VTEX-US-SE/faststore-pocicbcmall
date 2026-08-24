@@ -2,7 +2,7 @@ module.exports = {
   seo: {
     title: 'ICBC Shopping',
     description:
-      'Shop at major retailers, pay with exclusive conditions, and earn Esfera points.',
+      'Shop at major retailers, pay with exclusive conditions, and earn ICBC Puntos.',
     titleTemplate: '%s | ICBC Shopping',
     author: 'ICBC',
   },
@@ -15,7 +15,7 @@ module.exports = {
 
   // Platform specific configs for API
   api: {
-    storeId: 'pocsanbesfera',
+    storeId: 'pocicbcmall',
     workspace: 'master',
     environment: 'vtexcommercestable',
     hideUnavailableItems: true,
@@ -99,21 +99,6 @@ module.exports = {
   localization: {
     enabled: true,
     currencies: {
-      BRL: {
-        code: "BRL",
-        name: "Brazilian Real",
-        symbol: "R$",
-      },
-      GBP: {
-        code: "GBP",
-        name: "British Pound",
-        symbol: "£",
-      },
-      EUR: {
-        code: "EUR",
-        name: "Euro",
-        symbol: "€",
-      },
       ARS: {
         code: "ARS",
         name: "Argentine Peso",
@@ -124,7 +109,7 @@ module.exports = {
 
   vtexHeadlessCms: {
     webhookUrls: [
-      'https://pocsanbesfera.myvtex.com/cms-releases/webhook-releases',
+      'https://pocicbcmall.myvtex.com/cms-releases/webhook-releases',
     ],
   },
 }

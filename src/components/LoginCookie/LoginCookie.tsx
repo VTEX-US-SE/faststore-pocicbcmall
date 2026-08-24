@@ -19,11 +19,11 @@ const CheckAndUpdateCookie: React.FC = () => {
     if (!isLoading && data?.getCookieByDocument) {
       const apiValue = data.getCookieByDocument.token
       const currentCookieValue = getCookie(
-        'VtexIdclientAutCookie_pocsanbesfera'
+        'VtexIdclientAutCookie_pocicbcmall'
       )
 
       if (currentCookieValue !== apiValue && apiValue) {
-        setCookie('VtexIdclientAutCookie_pocsanbesfera', apiValue)
+        setCookie('VtexIdclientAutCookie_pocicbcmall', apiValue)
         window.location.reload()
       }
     }

@@ -11,7 +11,7 @@ const orderFormResolver = {
 }
 
 async function getOrderFormIdFromExternalService(): Promise<string> {
-  const account = 'pocsanbesfera'
+  const account = 'pocicbcmall'
   const url = `https://${account}.vtexcommercestable.com.br/api/checkout/pub/orderForm?forceNewCart=true`
 
   const response = await fetch(url, {

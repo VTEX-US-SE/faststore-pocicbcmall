@@ -1,8 +1,8 @@
 {
-  "name": "pocsanbesfera.faststore",
+  "name": "pocicbcmall.faststore",
   "author": "cubos.io & vtex.com",
   "version": "0.93.0",
-  "description": "VTEX Esfera Store - FastStore Project",
+  "description": "VTEX ICBC Mall Store - FastStore Project",
   "private": true,
   "scripts": {
     "dev": "faststore dev",

@@ -33,8 +33,10 @@ const attachmentsResolver = {
       const baseAttachments = []
 
       if (isSubscription) {
+        // NOTE: this attachment name must match the subscription plan slug
+        // actually configured in VTEX Subscriptions for the pocicbcmall account.
         baseAttachments.push({
-          name: 'vtex.subscription.clube-esfera',
+          name: 'vtex.subscription.club-icbc',
           content: {
             'vtex.subscription.key.frequency': '1 month',
           },
@@ -67,7 +69,7 @@ const attachmentsResolver = {
 }
 
 async function getOrderFormFromExternalService(orderformId: string) {
-  const url = `https://pocsanbesfera.myvtex.com/_v/token/document/${orderformId}`
+  const url = `https://pocicbcmall.myvtex.com/_v/token/document/${orderformId}`
   const response = await fetch(url)
   const data: OrderFormData = await response.json()
 
@@ -78,7 +80,7 @@ async function addItemToOrderFormFromExternalService(
   orderformId: string,
   body: AddToCartBody
 ) {
-  const url = `https://pocsanbesfera.vtexcommercestable.com.br/api/checkout/pub/orderForm/${orderformId}/items`
+  const url = `https://pocicbcmall.vtexcommercestable.com.br/api/checkout/pub/orderForm/${orderformId}/items`
   const response = await fetch(url, {
     method: 'POST',
     headers: {
