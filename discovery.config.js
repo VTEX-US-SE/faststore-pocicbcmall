@@ -96,15 +96,13 @@ module.exports = {
     type: 'CP',
   },
 
+  // Localization (multi-region/multi-currency) is disabled: ICBC Mall is
+  // single-region (Argentina, ARS only). session.currency/locale above already
+  // cover this. Enabling this flag makes the build fetch Localization Settings
+  // live from VTEX Admin for this account — turn it on only if that gets
+  // configured there for real multi-locale support.
   localization: {
-    enabled: true,
-    currencies: {
-      ARS: {
-        code: "ARS",
-        name: "Argentine Peso",
-        symbol: "$",
-      },
-    },
+    enabled: false,
   },
 
   vtexHeadlessCms: {
