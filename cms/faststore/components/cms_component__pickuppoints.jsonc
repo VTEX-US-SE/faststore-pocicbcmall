@@ -1,0 +1,24 @@
+{
+  "$extends": [
+    "#/$defs/base-component"
+  ],
+  "$componentKey": "PickupPoints",
+  "$componentTitle": "PickupPoints Info",
+  "title": "PickupPoints Info",
+  "description": "Información de Puntos de Retiro",
+  "type": "object",
+  "properties": {
+    "title": {
+      "title": "Título",
+      "type": "string"
+    },
+    "apikey": {
+      "title": "Clave de API de Google Maps",
+      "type": "string"
+    }
+  },
+  "readOnly": false,
+  "writeOnly": false,
+  "deprecated": false,
+  "$abstract": false
+}

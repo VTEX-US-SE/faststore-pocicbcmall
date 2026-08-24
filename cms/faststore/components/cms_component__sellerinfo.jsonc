@@ -1,0 +1,15 @@
+{
+  "$extends": [
+    "#/$defs/base-component"
+  ],
+  "$componentKey": "SellerInfo",
+  "$componentTitle": "Seller Info",
+  "title": "Seller Info",
+  "description": "Muestra el vendedor actual en la PDP",
+  "type": "object",
+  "properties": {},
+  "readOnly": false,
+  "writeOnly": false,
+  "deprecated": false,
+  "$abstract": false
+}

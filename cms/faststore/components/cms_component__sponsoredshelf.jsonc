@@ -1,0 +1,57 @@
+{
+  "$extends": [
+    "#/$defs/base-component"
+  ],
+  "$componentKey": "SponsoredShelf",
+  "$componentTitle": "Sponsored Shelf",
+  "title": "Sponsored Shelf",
+  "description": "Muestra una vidriera de productos patrocinados, ideal para ubicar arriba de un listado de productos.",
+  "type": "object",
+  "required": [],
+  "properties": {
+    "sponsoredCount": {
+      "type": "number",
+      "title": "Cantidad total de ítems patrocinados",
+      "default": 2,
+      "description": "Cantidad total de ítems patrocinados. La cantidad puede ser menor si la búsqueda devuelve menos productos."
+    },
+    "sponsoredPlacement": {
+      "title": "Ubicación del anuncio",
+      "description": "La mejor descripción para la ubicación donde se mostrarán los anuncios (si está habilitado)",
+      "default": "search_top-shelf_product",
+      "enum": [
+        "search_top_product",
+        "search_top-shelf_product",
+        "home_shelf_product",
+        "pdp_shelf_product",
+        "plp_shelf_product",
+        "autocomplete_product",
+        "search_top_brand"
+      ],
+      "enumNames": [
+        "Arriba de la página de búsqueda / categoría / colección",
+        "Vidriera exclusiva de productos patrocinados",
+        "Vidriera de productos en el inicio",
+        "Vidriera de productos en la página de detalle del producto",
+        "Vidriera de productos en la página de listado",
+        "Autocompletado en el desplegable de búsqueda",
+        "Vidriera exclusiva de marcas patrocinadas"
+      ]
+    },
+    "sponsoredQuery": {
+      "title": "Búsqueda opcional para usar al buscar productos patrocinados",
+      "type": "string",
+      "default": ""
+    },
+    "useNavigationContext": {
+      "title": "Usar el contexto de navegación actual al buscar productos patrocinados",
+      "description": "Usa la búsqueda actual y las categorías seleccionadas al buscar productos patrocinados (puede mostrar los mismos anuncios que en la sección de listado de productos). Si está deshabilitado, no se considerará ningún contexto específico al buscar anuncios.",
+      "default": false,
+      "type": "boolean"
+    }
+  },
+  "readOnly": false,
+  "writeOnly": false,
+  "deprecated": false,
+  "$abstract": false
+}

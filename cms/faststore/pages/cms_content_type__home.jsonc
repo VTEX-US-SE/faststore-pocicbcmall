@@ -1,0 +1,14 @@
+{
+  // Starter Content Type — replace with the real one from pocsanbesfera's CMS
+  // once you can inspect/export it there. This just unblocks local generate-schema.
+  "title": "Inicio",
+  "type": "object",
+  "$singleton": true,
+  "identifierKeys": [],
+  "properties": {
+    "sections": {
+      "title": "Secciones de la página",
+      "$ref": "#/$defs/$ALLOW_ALL_COMPONENTS"
+    }
+  }
+}

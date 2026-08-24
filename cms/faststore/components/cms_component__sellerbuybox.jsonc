@@ -1,0 +1,15 @@
+{
+  "$extends": [
+    "#/$defs/base-component"
+  ],
+  "$componentKey": "SellerBuyBox",
+  "$componentTitle": "Seller Buy Box",
+  "title": "Seller Buy Box",
+  "description": "Muestra la caja de compra del vendedor en la PDP, donde los clientes pueden elegir a qué vendedor comprarle",
+  "type": "object",
+  "properties": {},
+  "readOnly": false,
+  "writeOnly": false,
+  "deprecated": false,
+  "$abstract": false
+}

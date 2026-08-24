@@ -1,0 +1,15 @@
+{
+  "$extends": [
+    "#/$defs/base-component"
+  ],
+  "$componentKey": "CustomProductPoints",
+  "$componentTitle": "CustomProductPoints",
+  "title": "CustomProductPoints",
+  "description": "Agregá el canje de puntos a la PDP de tu tienda",
+  "type": "object",
+  "properties": {},
+  "readOnly": false,
+  "writeOnly": false,
+  "deprecated": false,
+  "$abstract": false
+}

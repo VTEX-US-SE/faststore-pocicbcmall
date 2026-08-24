@@ -1,0 +1,90 @@
+{
+  "$extends": [
+    "#/$defs/base-component"
+  ],
+  "$componentKey": "CustomCategoryCard",
+  "$componentTitle": "Custom Category Card",
+  "title": "Custom Category Card",
+  "description": "Tarjetas en diseño flexible con imagen y texto de categorías",
+  "type": "object",
+  "required": [
+    "title"
+  ],
+  "properties": {
+    "title": {
+      "title": "Título",
+      "type": "string"
+    },
+    "images": {
+      "title": "Tarjetas",
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 6,
+      "items": {
+        "title": "Tarjeta",
+        "type": "object",
+        "required": [
+          "imageTitle",
+          "imageAlt",
+          "link",
+          "imageSrcDesktop",
+          "imageSrcMobile"
+        ],
+        "properties": {
+          "imageTitle": {
+            "type": "string",
+            "title": "Título de Imagen"
+          },
+          "imageAlt": {
+            "type": "string",
+            "title": "Texto Alternativo de Imagen"
+          },
+          "link": {
+            "type": "string",
+            "title": "Enlace"
+          },
+          "imageSrcDesktop": {
+            "type": "string",
+            "title": "Imagen de Escritorio",
+            "widget": {
+              "ui:widget": "media-gallery",
+              "restrictMediaTypes": {
+                "video": true,
+                "image": [
+                  "png",
+                  "jpg",
+                  "jpeg",
+                  "gif",
+                  "svg",
+                  "webp"
+                ]
+              }
+            }
+          },
+          "imageSrcMobile": {
+            "type": "string",
+            "title": "Imagen Móvil",
+            "widget": {
+              "ui:widget": "media-gallery",
+              "restrictMediaTypes": {
+                "video": true,
+                "image": [
+                  "png",
+                  "jpg",
+                  "jpeg",
+                  "gif",
+                  "svg",
+                  "webp"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "readOnly": false,
+  "writeOnly": false,
+  "deprecated": false,
+  "$abstract": false
+}

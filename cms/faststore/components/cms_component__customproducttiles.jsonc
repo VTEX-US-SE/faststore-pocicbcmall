@@ -5,7 +5,7 @@
   "$componentKey": "CustomProductTiles",
   "$componentTitle": "Custom Product Tiles",
   "title": "Custom Product Tiles",
-  "description": "Add custom highlights to your store",
+  "description": "Agregá destacados personalizados a tu tienda",
   "type": "object",
   "required": [
     "title",
@@ -15,24 +15,24 @@
   ],
   "properties": {
     "title": {
-      "title": "Title",
+      "title": "Título",
       "type": "string"
     },
     "first": {
-      "title": "First",
+      "title": "Cantidad",
       "type": "integer",
       "default": 3,
-      "description": "Number of items to display"
+      "description": "Cantidad de ítems a mostrar"
     },
     "after": {
-      "title": "After",
+      "title": "Ítem inicial",
       "type": "integer",
       "default": 0,
-      "description": "Initial pagination item"
+      "description": "Ítem inicial de la paginación"
     },
     "sort": {
-      "title": "Sort",
-      "description": "Items order",
+      "title": "Orden",
+      "description": "Orden de los ítems",
       "default": "score_desc",
       "enum": [
         "discount_desc",
@@ -45,25 +45,25 @@
         "score_desc"
       ],
       "enumNames": [
-        "Discount: higher to lower",
-        "Name: Z-A",
-        "Name: A-Z",
-        "Orders: higher to lower",
-        "Price: lower to higher",
-        "Price: higher to lower",
-        "Release date: newer to older",
-        "Relevance: higher to lower"
+        "Descuento: mayor a menor",
+        "Nombre: Z-A",
+        "Nombre: A-Z",
+        "Pedidos: mayor a menor",
+        "Precio: menor a mayor",
+        "Precio: mayor a menor",
+        "Fecha de lanzamiento: más nuevo a más antiguo",
+        "Relevancia: mayor a menor"
       ]
     },
     "term": {
-      "title": "Search term",
+      "title": "Término de búsqueda",
       "type": "string"
     },
     "selectedFacets": {
-      "title": "Facets",
+      "title": "Facetas",
       "type": "array",
       "items": {
-        "title": "Facet",
+        "title": "Faceta",
         "type": "object",
         "required": [
           "key",
@@ -71,14 +71,14 @@
         ],
         "properties": {
           "key": {
-            "title": "Key",
-            "description": "Tip: For collections, use: productClusterIds",
+            "title": "Clave",
+            "description": "Tip: Para colecciones, usá: productClusterIds",
             "type": "string",
             "default": "productClusterIds"
           },
           "value": {
-            "title": "Value",
-            "description": "Tip: For collection 140, use: 140",
+            "title": "Valor",
+            "description": "Tip: Para la colección 140, usá: 140",
             "type": "string",
             "default": "140"
           }

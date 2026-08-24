@@ -1,0 +1,85 @@
+{
+  "$extends": [
+    "#/$defs/base-component"
+  ],
+  "$componentKey": "Carousel",
+  "$componentTitle": "Region Banners",
+  "title": "Region Banners",
+  "description": "Conjunto de banners con opción de región mostrados en un carrusel",
+  "type": "object",
+  "properties": {
+    "images": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5,
+      "items": {
+        "title": "Tarjeta",
+        "type": "object",
+        "required": [
+          "imageAlt",
+          "imageSrcDesktop",
+          "imageSrcMobile",
+          "link"
+        ],
+        "properties": {
+          "imageAlt": {
+            "type": "string",
+            "title": "Texto Alternativo de Imagen"
+          },
+          "link": {
+            "type": "string",
+            "title": "Enlace"
+          },
+          "franchise": {
+            "type": "string",
+            "title": "Franquicia"
+          },
+          "imageSrcDesktop": {
+            "type": "string",
+            "title": "Imagen de Escritorio",
+            "widget": {
+              "ui:widget": "media-gallery",
+              "restrictMediaTypes": {
+                "video": true,
+                "image": [
+                  "png",
+                  "jpg",
+                  "jpeg",
+                  "gif",
+                  "svg",
+                  "webp"
+                ]
+              }
+            }
+          },
+          "imageSrcMobile": {
+            "type": "string",
+            "title": "Imagen Móvil",
+            "widget": {
+              "ui:widget": "media-gallery",
+              "restrictMediaTypes": {
+                "video": true,
+                "image": [
+                  "png",
+                  "jpg",
+                  "jpeg",
+                  "gif",
+                  "svg",
+                  "webp"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "fullImage": {
+      "type": "boolean",
+      "title": "Imagen Completa"
+    }
+  },
+  "readOnly": false,
+  "writeOnly": false,
+  "deprecated": false,
+  "$abstract": false
+}

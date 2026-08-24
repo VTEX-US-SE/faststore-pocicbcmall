@@ -1,68 +1,12 @@
-[
-  {
-    "name": "CategoryCards",
-    "schema": {
-      "title": "Category Cards",
-      "description": "Tarjetas en diseño flexible con imagen y texto de categorías",
-      "type": "object",
-      "required": ["title"],
-      "properties": {
-        "title": {
-          "title": "Título",
-          "type": "string"
-        },
-        "images": {
-          "title": "Tarjetas",
-          "type": "array",
-          "minItems": 1,
-          "maxItems": 5,
-          "items": {
-            "title": "Tarjeta",
-            "type": "object",
-            "required": [
-              "imageTitle",
-              "imageAlt",
-              "link",
-              "imageSrcDesktop",
-              "imageSrcMobile"
-            ],
-            "properties": {
-              "imageTitle": {
-                "type": "string",
-                "title": "Título de Imagen"
-              },
-              "imageAlt": {
-                "type": "string",
-                "title": "Texto Alternativo de Imagen"
-              },
-              "link": {
-                "type": "string",
-                "title": "Enlace"
-              },
-              "imageSrcDesktop": {
-                "type": "string",
-                "title": "Imagen de Escritorio",
-                "widget": {
-                  "ui:widget": "media-gallery"
-                }
-              },
-              "imageSrcMobile": {
-                "type": "string",
-                "title": "Imagen Móvil",
-                "widget": {
-                  "ui:widget": "media-gallery"
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  {
-    "name": "Carousel",
-    "requiredScopes": [],
-    "schema": {
+{
+  "$base": "vtex.faststore@4",
+  "components": {
+    "Carousel": {
+      "$extends": [
+        "#/$defs/base-component"
+      ],
+      "$componentKey": "Carousel",
+      "$componentTitle": "Region Banners",
       "title": "Region Banners",
       "description": "Conjunto de banners con opción de región mostrados en un carrusel",
       "type": "object",
@@ -97,14 +41,36 @@
                 "type": "string",
                 "title": "Imagen de Escritorio",
                 "widget": {
-                  "ui:widget": "media-gallery"
+                  "ui:widget": "media-gallery",
+                  "restrictMediaTypes": {
+                    "video": true,
+                    "image": [
+                      "png",
+                      "jpg",
+                      "jpeg",
+                      "gif",
+                      "svg",
+                      "webp"
+                    ]
+                  }
                 }
               },
               "imageSrcMobile": {
                 "type": "string",
                 "title": "Imagen Móvil",
                 "widget": {
-                  "ui:widget": "media-gallery"
+                  "ui:widget": "media-gallery",
+                  "restrictMediaTypes": {
+                    "video": true,
+                    "image": [
+                      "png",
+                      "jpg",
+                      "jpeg",
+                      "gif",
+                      "svg",
+                      "webp"
+                    ]
+                  }
                 }
               }
             }
@@ -114,210 +80,114 @@
           "type": "boolean",
           "title": "Imagen Completa"
         }
-      }
-    }
-  },
-  {
-    "name": "SellerBuyBox",
-    "schema": {
-      "title": "Seller Buy Box",
-      "description": "Muestra la caja de compra del vendedor en la PDP, donde los clientes pueden elegir a qué vendedor comprarle",
-      "type": "object"
-    }
-  },
-  {
-    "name": "SellerInfo",
-    "schema": {
-      "title": "Seller Info",
-      "description": "Muestra el vendedor actual en la PDP",
-      "type": "object"
-    }
-  },
-  {
-    "name": "PickupPoints",
-    "schema": {
-      "title": "PickupPoints Info",
-      "description": "Información de Puntos de Retiro",
+      },
+      "readOnly": false,
+      "writeOnly": false,
+      "deprecated": false,
+      "$abstract": false
+    },
+    "CategoryCards": {
+      "$extends": [
+        "#/$defs/base-component"
+      ],
+      "$componentKey": "CategoryCards",
+      "$componentTitle": "Category Cards",
+      "title": "Category Cards",
+      "description": "Tarjetas en diseño flexible con imagen y texto de categorías",
       "type": "object",
+      "required": [
+        "title"
+      ],
       "properties": {
         "title": {
           "title": "Título",
           "type": "string"
         },
-        "apikey": {
-          "title": "Clave de API de Google Maps",
-          "type": "string"
-        }
-      }
-    }
-  },
-  {
-    "name": "CustomProductTiles",
-    "requiredScopes": [],
-    "schema": {
-      "title": "Custom Product Tiles",
-      "description": "Agregá destacados personalizados a tu tienda",
-      "type": "object",
-      "required": ["title", "first", "after", "sort"],
-      "properties": {
-        "title": {
-          "title": "Título",
-          "type": "string"
-        },
-        "first": {
-          "title": "Cantidad",
-          "type": "integer",
-          "default": 3,
-          "description": "Cantidad de ítems a mostrar"
-        },
-        "after": {
-          "title": "Ítem inicial",
-          "type": "integer",
-          "default": "0",
-          "description": "Ítem inicial de la paginación"
-        },
-        "sort": {
-          "title": "Orden",
-          "description": "Orden de los ítems",
-          "default": "score_desc",
-          "enum": [
-            "discount_desc",
-            "name_asc",
-            "name_desc",
-            "orders_desc",
-            "price_asc",
-            "price_desc",
-            "release_desc",
-            "score_desc"
-          ],
-          "enumNames": [
-            "Descuento: mayor a menor",
-            "Nombre: Z-A",
-            "Nombre: A-Z",
-            "Pedidos: mayor a menor",
-            "Precio: menor a mayor",
-            "Precio: mayor a menor",
-            "Fecha de lanzamiento: más nuevo a más antiguo",
-            "Relevancia: mayor a menor"
-          ]
-        },
-        "term": {
-          "title": "Término de búsqueda",
-          "type": "string"
-        },
-        "selectedFacets": {
-          "title": "Facetas",
+        "images": {
+          "title": "Tarjetas",
           "type": "array",
+          "minItems": 1,
+          "maxItems": 5,
           "items": {
-            "title": "Faceta",
+            "title": "Tarjeta",
             "type": "object",
-            "required": ["key", "value"],
+            "required": [
+              "imageTitle",
+              "imageAlt",
+              "link",
+              "imageSrcDesktop",
+              "imageSrcMobile"
+            ],
             "properties": {
-              "key": {
-                "title": "Clave",
-                "description": "Tip: Para colecciones, usá: productClusterIds",
+              "imageTitle": {
                 "type": "string",
-                "default": "productClusterIds"
+                "title": "Título de Imagen"
               },
-              "value": {
-                "title": "Valor",
-                "description": "Tip: Para la colección 140, usá: 140",
+              "imageAlt": {
                 "type": "string",
-                "default": "140"
+                "title": "Texto Alternativo de Imagen"
+              },
+              "link": {
+                "type": "string",
+                "title": "Enlace"
+              },
+              "imageSrcDesktop": {
+                "type": "string",
+                "title": "Imagen de Escritorio",
+                "widget": {
+                  "ui:widget": "media-gallery",
+                  "restrictMediaTypes": {
+                    "video": true,
+                    "image": [
+                      "png",
+                      "jpg",
+                      "jpeg",
+                      "gif",
+                      "svg",
+                      "webp"
+                    ]
+                  }
+                }
+              },
+              "imageSrcMobile": {
+                "type": "string",
+                "title": "Imagen Móvil",
+                "widget": {
+                  "ui:widget": "media-gallery",
+                  "restrictMediaTypes": {
+                    "video": true,
+                    "image": [
+                      "png",
+                      "jpg",
+                      "jpeg",
+                      "gif",
+                      "svg",
+                      "webp"
+                    ]
+                  }
+                }
               }
             }
           }
         }
-      }
-    }
-  },
-  {
-    "name": "CustomProductGallery",
-    "requiredScopes": [],
-    "schema": {
-      "title": "Custom Product Gallery",
-      "description": "Agregá una galería de productos personalizada a tu tienda",
-      "type": "object",
-      "required": ["title", "first", "after", "sort"],
-      "properties": {
-        "title": {
-          "title": "Título",
-          "type": "string"
-        },
-        "first": {
-          "title": "Cantidad",
-          "type": "integer",
-          "default": 3,
-          "description": "Cantidad de ítems a mostrar"
-        },
-        "after": {
-          "title": "Ítem inicial",
-          "type": "integer",
-          "default": "0",
-          "description": "Ítem inicial de la paginación"
-        },
-        "sort": {
-          "title": "Orden",
-          "description": "Orden de los ítems",
-          "default": "score_desc",
-          "enum": [
-            "discount_desc",
-            "name_asc",
-            "name_desc",
-            "orders_desc",
-            "price_asc",
-            "price_desc",
-            "release_desc",
-            "score_desc"
-          ],
-          "enumNames": [
-            "Descuento: mayor a menor",
-            "Nombre: Z-A",
-            "Nombre: A-Z",
-            "Pedidos: mayor a menor",
-            "Precio: menor a mayor",
-            "Precio: mayor a menor",
-            "Fecha de lanzamiento: más nuevo a más antiguo",
-            "Relevancia: mayor a menor"
-          ]
-        },
-        "term": {
-          "title": "Término de búsqueda",
-          "type": "string"
-        },
-        "selectedFacets": {
-          "title": "Facetas",
-          "type": "array",
-          "items": {
-            "title": "Faceta",
-            "type": "object",
-            "required": ["key", "value"],
-            "properties": {
-              "key": {
-                "title": "Clave",
-                "description": "Tip: Para colecciones, usá: productClusterIds",
-                "type": "string",
-                "default": "productClusterIds"
-              },
-              "value": {
-                "title": "Valor",
-                "description": "Tip: Para la colección 140, usá: 140",
-                "type": "string",
-                "default": "140"
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  {
-    "name": "CustomCategoryCard",
-    "schema": {
+      },
+      "readOnly": false,
+      "writeOnly": false,
+      "deprecated": false,
+      "$abstract": false
+    },
+    "CustomCategoryCard": {
+      "$extends": [
+        "#/$defs/base-component"
+      ],
+      "$componentKey": "CustomCategoryCard",
+      "$componentTitle": "Custom Category Card",
       "title": "Custom Category Card",
       "description": "Tarjetas en diseño flexible con imagen y texto de categorías",
       "type": "object",
-      "required": ["title"],
+      "required": [
+        "title"
+      ],
       "properties": {
         "title": {
           "title": "Título",
@@ -355,25 +225,278 @@
                 "type": "string",
                 "title": "Imagen de Escritorio",
                 "widget": {
-                  "ui:widget": "media-gallery"
+                  "ui:widget": "media-gallery",
+                  "restrictMediaTypes": {
+                    "video": true,
+                    "image": [
+                      "png",
+                      "jpg",
+                      "jpeg",
+                      "gif",
+                      "svg",
+                      "webp"
+                    ]
+                  }
                 }
               },
               "imageSrcMobile": {
                 "type": "string",
                 "title": "Imagen Móvil",
                 "widget": {
-                  "ui:widget": "media-gallery"
+                  "ui:widget": "media-gallery",
+                  "restrictMediaTypes": {
+                    "video": true,
+                    "image": [
+                      "png",
+                      "jpg",
+                      "jpeg",
+                      "gif",
+                      "svg",
+                      "webp"
+                    ]
+                  }
                 }
               }
             }
           }
         }
-      }
-    }
-  },
-  {
-    "name": "PointsCards",
-    "schema": {
+      },
+      "readOnly": false,
+      "writeOnly": false,
+      "deprecated": false,
+      "$abstract": false
+    },
+    "CustomProductGallery": {
+      "$extends": [
+        "#/$defs/base-component"
+      ],
+      "$componentKey": "CustomProductGallery",
+      "$componentTitle": "Custom Product Gallery",
+      "title": "Custom Product Gallery",
+      "description": "Agregá una galería de productos personalizada a tu tienda",
+      "type": "object",
+      "required": [
+        "title",
+        "first",
+        "after",
+        "sort"
+      ],
+      "properties": {
+        "title": {
+          "title": "Título",
+          "type": "string"
+        },
+        "first": {
+          "title": "Cantidad",
+          "type": "integer",
+          "default": 3,
+          "description": "Cantidad de ítems a mostrar"
+        },
+        "after": {
+          "title": "Ítem inicial",
+          "type": "integer",
+          "default": 0,
+          "description": "Ítem inicial de la paginación"
+        },
+        "sort": {
+          "title": "Orden",
+          "description": "Orden de los ítems",
+          "default": "score_desc",
+          "enum": [
+            "discount_desc",
+            "name_asc",
+            "name_desc",
+            "orders_desc",
+            "price_asc",
+            "price_desc",
+            "release_desc",
+            "score_desc"
+          ],
+          "enumNames": [
+            "Descuento: mayor a menor",
+            "Nombre: Z-A",
+            "Nombre: A-Z",
+            "Pedidos: mayor a menor",
+            "Precio: menor a mayor",
+            "Precio: mayor a menor",
+            "Fecha de lanzamiento: más nuevo a más antiguo",
+            "Relevancia: mayor a menor"
+          ]
+        },
+        "term": {
+          "title": "Término de búsqueda",
+          "type": "string"
+        },
+        "selectedFacets": {
+          "title": "Facetas",
+          "type": "array",
+          "items": {
+            "title": "Faceta",
+            "type": "object",
+            "required": [
+              "key",
+              "value"
+            ],
+            "properties": {
+              "key": {
+                "title": "Clave",
+                "description": "Tip: Para colecciones, usá: productClusterIds",
+                "type": "string",
+                "default": "productClusterIds"
+              },
+              "value": {
+                "title": "Valor",
+                "description": "Tip: Para la colección 140, usá: 140",
+                "type": "string",
+                "default": "140"
+              }
+            }
+          }
+        }
+      },
+      "readOnly": false,
+      "writeOnly": false,
+      "deprecated": false,
+      "$abstract": false
+    },
+    "CustomProductPoints": {
+      "$extends": [
+        "#/$defs/base-component"
+      ],
+      "$componentKey": "CustomProductPoints",
+      "$componentTitle": "CustomProductPoints",
+      "title": "CustomProductPoints",
+      "description": "Agregá el canje de puntos a la PDP de tu tienda",
+      "type": "object",
+      "properties": {},
+      "readOnly": false,
+      "writeOnly": false,
+      "deprecated": false,
+      "$abstract": false
+    },
+    "CustomProductTiles": {
+      "$extends": [
+        "#/$defs/base-component"
+      ],
+      "$componentKey": "CustomProductTiles",
+      "$componentTitle": "Custom Product Tiles",
+      "title": "Custom Product Tiles",
+      "description": "Agregá destacados personalizados a tu tienda",
+      "type": "object",
+      "required": [
+        "title",
+        "first",
+        "after",
+        "sort"
+      ],
+      "properties": {
+        "title": {
+          "title": "Título",
+          "type": "string"
+        },
+        "first": {
+          "title": "Cantidad",
+          "type": "integer",
+          "default": 3,
+          "description": "Cantidad de ítems a mostrar"
+        },
+        "after": {
+          "title": "Ítem inicial",
+          "type": "integer",
+          "default": 0,
+          "description": "Ítem inicial de la paginación"
+        },
+        "sort": {
+          "title": "Orden",
+          "description": "Orden de los ítems",
+          "default": "score_desc",
+          "enum": [
+            "discount_desc",
+            "name_asc",
+            "name_desc",
+            "orders_desc",
+            "price_asc",
+            "price_desc",
+            "release_desc",
+            "score_desc"
+          ],
+          "enumNames": [
+            "Descuento: mayor a menor",
+            "Nombre: Z-A",
+            "Nombre: A-Z",
+            "Pedidos: mayor a menor",
+            "Precio: menor a mayor",
+            "Precio: mayor a menor",
+            "Fecha de lanzamiento: más nuevo a más antiguo",
+            "Relevancia: mayor a menor"
+          ]
+        },
+        "term": {
+          "title": "Término de búsqueda",
+          "type": "string"
+        },
+        "selectedFacets": {
+          "title": "Facetas",
+          "type": "array",
+          "items": {
+            "title": "Faceta",
+            "type": "object",
+            "required": [
+              "key",
+              "value"
+            ],
+            "properties": {
+              "key": {
+                "title": "Clave",
+                "description": "Tip: Para colecciones, usá: productClusterIds",
+                "type": "string",
+                "default": "productClusterIds"
+              },
+              "value": {
+                "title": "Valor",
+                "description": "Tip: Para la colección 140, usá: 140",
+                "type": "string",
+                "default": "140"
+              }
+            }
+          }
+        }
+      },
+      "readOnly": false,
+      "writeOnly": false,
+      "deprecated": false,
+      "$abstract": false
+    },
+    "PickupPoints": {
+      "$extends": [
+        "#/$defs/base-component"
+      ],
+      "$componentKey": "PickupPoints",
+      "$componentTitle": "PickupPoints Info",
+      "title": "PickupPoints Info",
+      "description": "Información de Puntos de Retiro",
+      "type": "object",
+      "properties": {
+        "title": {
+          "title": "Título",
+          "type": "string"
+        },
+        "apikey": {
+          "title": "Clave de API de Google Maps",
+          "type": "string"
+        }
+      },
+      "readOnly": false,
+      "writeOnly": false,
+      "deprecated": false,
+      "$abstract": false
+    },
+    "PointsCards": {
+      "$extends": [
+        "#/$defs/base-component"
+      ],
+      "$componentKey": "PointsCards",
+      "$componentTitle": "Points Card",
       "title": "Points Card",
       "description": "Tarjetas en diseño flexible con imagen y texto de categorías",
       "type": "object",
@@ -390,7 +513,11 @@
           "items": {
             "title": "Tarjeta",
             "type": "object",
-            "required": ["title", "subtitle", "text"],
+            "required": [
+              "title",
+              "subtitle",
+              "text"
+            ],
             "properties": {
               "title": {
                 "type": "string",
@@ -407,21 +534,48 @@
             }
           }
         }
-      }
-    }
-  },
-  {
-    "name": "CustomProductPoints",
-    "schema": {
-      "title": "CustomProductPoints",
-      "description": "Agregá el canje de puntos a la PDP de tu tienda",
+      },
+      "readOnly": false,
+      "writeOnly": false,
+      "deprecated": false,
+      "$abstract": false
+    },
+    "SellerBuyBox": {
+      "$extends": [
+        "#/$defs/base-component"
+      ],
+      "$componentKey": "SellerBuyBox",
+      "$componentTitle": "Seller Buy Box",
+      "title": "Seller Buy Box",
+      "description": "Muestra la caja de compra del vendedor en la PDP, donde los clientes pueden elegir a qué vendedor comprarle",
       "type": "object",
-      "properties": {}
-    }
-  },
-  {
-    "name": "SponsoredShelf",
-    "schema": {
+      "properties": {},
+      "readOnly": false,
+      "writeOnly": false,
+      "deprecated": false,
+      "$abstract": false
+    },
+    "SellerInfo": {
+      "$extends": [
+        "#/$defs/base-component"
+      ],
+      "$componentKey": "SellerInfo",
+      "$componentTitle": "Seller Info",
+      "title": "Seller Info",
+      "description": "Muestra el vendedor actual en la PDP",
+      "type": "object",
+      "properties": {},
+      "readOnly": false,
+      "writeOnly": false,
+      "deprecated": false,
+      "$abstract": false
+    },
+    "SponsoredShelf": {
+      "$extends": [
+        "#/$defs/base-component"
+      ],
+      "$componentKey": "SponsoredShelf",
+      "$componentTitle": "Sponsored Shelf",
       "title": "Sponsored Shelf",
       "description": "Muestra una vidriera de productos patrocinados, ideal para ubicar arriba de un listado de productos.",
       "type": "object",
@@ -467,7 +621,24 @@
           "default": false,
           "type": "boolean"
         }
+      },
+      "readOnly": false,
+      "writeOnly": false,
+      "deprecated": false,
+      "$abstract": false
+    }
+  },
+  "$defs": {},
+  "content-types": {
+    "title": "Inicio",
+    "type": "object",
+    "$singleton": true,
+    "identifierKeys": [],
+    "properties": {
+      "sections": {
+        "title": "Secciones de la página",
+        "$ref": "#/$defs/$ALLOW_ALL_COMPONENTS"
       }
     }
   }
-]
+}
