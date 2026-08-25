@@ -15,8 +15,9 @@ import {
 } from '@faststore/ui'
 import { ImageProps } from 'next/image'
 import NextLink from 'next/link'
-import { memo, useMemo } from 'react'
+import { memo, useCallback, useMemo } from 'react'
 import { usePointsFormatter } from './custom-hooks/usePointsFormatter'
+import { usePriceFormatter } from './custom-hooks/usePriceFormatter'
 
 type Variant = 'wide' | 'default'
 
@@ -91,6 +92,16 @@ function CustomProductCard({
   const { onClick: toggleCart } = useCartToggleButton()
   const { addItem } = useCart
   const pointsFormatter = usePointsFormatter()
+  const priceFormatter = usePriceFormatter()
+  //@ts-ignore
+  const cpp = Number(product.cpp)
+
+  // Shows price and points side by side (e.g. "$45.000 / 4.500 pts") instead
+  // of replacing the price with a points-only value.
+  const priceWithPointsFormatter = useCallback(
+    (price: number) => `${priceFormatter(price)} / ${pointsFormatter(price * cpp)}`,
+    [priceFormatter, pointsFormatter, cpp]
+  )
 
   const outOfStock = useMemo(
     () => availability !== 'https://schema.org/InStock',
@@ -120,11 +131,9 @@ function CustomProductCard({
       <UIProductCardContent
         title={name}
         price={{
-          //@ts-ignore
-          value: spotPrice * Number(product.cpp),
-          //@ts-ignore
-          listPrice: listPrice * Number(product.cpp),
-          formatter: pointsFormatter,
+          value: spotPrice,
+          listPrice,
+          formatter: priceWithPointsFormatter,
         }}
         ratingValue={ratingValue}
         outOfStock={outOfStock}

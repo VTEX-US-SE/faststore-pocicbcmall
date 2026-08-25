@@ -324,6 +324,13 @@
     //   border: 0;
     // }
 
+    [data-fs-navbar-links] {
+      // The bar has no vertical padding of its own by default (only the link
+      // items' own padding), so it visually touches whatever section follows
+      // (e.g. the Region Banners carousel) with no breathing room.
+      padding-bottom: 16px;
+    }
+
     [data-fs-navbar-links-list] {
       --fs-navbar-links-list-padding-left-notebook: 0;
       --fs-navbar-links-list-margin-left-notebook: 0;
@@ -510,6 +517,11 @@
     .c-points__card {
       [data-fs-carousel-track] {
         justify-content: space-around;
+        column-gap: 16px;
+
+        @include u.media(">=notebook") {
+          column-gap: 32px;
+        }
       }
 
       padding-right: 15px;
