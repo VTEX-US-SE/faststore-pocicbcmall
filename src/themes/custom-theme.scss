@@ -71,6 +71,13 @@
       @include u.media(">=tablet") {
         --fs-logo-width: 15rem;
       }
+
+      // Header logo comes from the CMS-configured Navbar section and can't be
+      // set via a code override (it's rendered before the override system runs).
+      // Force the ICBC Mall logo here instead, same trick as the footer logo below.
+      [data-fs-navbar-logo] [data-fs-image] {
+        content: url("https://mall.icbc.com.ar/img/Logo-Mall-Normativo.svg");
+      }
     }
 
     [data-fs-hero] {
