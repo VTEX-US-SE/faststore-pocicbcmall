@@ -1,10 +1,18 @@
 import { useState } from 'react'
 import styles from './customproductpoints.module.scss'
 import { usePDP } from '@faststore/core'
+import { useSession_unstable as useSession } from '@faststore/core/experimental'
 import InputMask from 'react-input-mask'
 
 export default function CustomProductPoints() {
   const { data: dataProduct } = usePDP()
+  const { locale } = useSession()
+  const price = Number(dataProduct?.product?.offers?.offers?.[0]?.price ?? 0)
+  //@ts-ignore
+  const cpp = Number(dataProduct?.product?.cpp ?? 100)
+  const points = new Intl.NumberFormat(locale, {
+    maximumFractionDigits: 0,
+  }).format(price * cpp)
   const [cuit, setCuit] = useState('')
   const [error, setError] = useState('')
   const [agreed, setAgreed] = useState(false)
@@ -36,9 +44,7 @@ export default function CustomProductPoints() {
 
         <div className={styles.pointsBox}>
           <span className={styles.smallText}>Up to</span>
-          <span className={styles.bigNumber}>
-            {dataProduct?.product?.offers?.offers?.[0]?.price}
-          </span>
+          <span className={styles.bigNumber}>{points}</span>
           <div className={styles.pointsText}>
             <span className={styles.highlightText}>Points</span>
             <span className={styles.text}>ICBC Puntos*</span>
