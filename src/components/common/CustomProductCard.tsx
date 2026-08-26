@@ -96,7 +96,7 @@ function CustomProductCard({
   const priceFormatter = usePriceFormatter()
   //@ts-ignore
   const cpp = Number(product.cpp)
-  const points = pointsFormatter(spotPrice * cpp)
+  const points = pointsFormatter(spotPrice / cpp)
 
   const outOfStock = useMemo(
     () => availability !== 'https://schema.org/InStock',

@@ -64,9 +64,9 @@ const override: SectionOverride = {
         const priceDivRef = useRef<Element | null>(null)
 
         const listPoints = (
-          Number(selectedOffer.listPrice) * Number(cpp)
+          Number(selectedOffer.listPrice) / Number(cpp)
         ).toFixed(0)
-        const finalPoints = (Number(selectedOffer.price) * Number(cpp)).toFixed(
+        const finalPoints = (Number(selectedOffer.price) / Number(cpp)).toFixed(
           0
         )
 

@@ -69,7 +69,7 @@ function CartToPoints() {
     const value = item.price
     const cashInPoints = value * (percentage / 100)
     const cashPart = value - cashInPoints
-    const pointsPart = cashInPoints * cpp
+    const pointsPart = cashInPoints / cpp
 
     return { cash: cashPart, points: pointsPart }
   }

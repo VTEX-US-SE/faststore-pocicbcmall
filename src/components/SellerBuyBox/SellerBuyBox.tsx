@@ -32,10 +32,10 @@ export default function SellerBuyBox({
         <h2 className={`text__title-mini ${styles.title}`}>Our partners</h2>
         <div className={styles.offerList}>
           {filteredOffers.map((offer: any, index: number) => {
-            const listPoints = (Number(offer.listPrice) * Number(cpp)).toFixed(
+            const listPoints = (Number(offer.listPrice) / Number(cpp)).toFixed(
               0
             )
-            const finalPoints = (Number(offer.price) * Number(cpp)).toFixed(0)
+            const finalPoints = (Number(offer.price) / Number(cpp)).toFixed(0)
 
             return (
               <div key={offer.seller.identifier} className={styles.seller}>

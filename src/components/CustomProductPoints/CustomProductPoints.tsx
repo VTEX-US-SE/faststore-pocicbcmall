@@ -12,7 +12,7 @@ export default function CustomProductPoints() {
   const cpp = Number(dataProduct?.product?.cpp ?? 100)
   const points = new Intl.NumberFormat(locale, {
     maximumFractionDigits: 0,
-  }).format(price * cpp)
+  }).format(price / cpp)
   const [cuit, setCuit] = useState('')
   const [error, setError] = useState('')
   const [agreed, setAgreed] = useState(false)
